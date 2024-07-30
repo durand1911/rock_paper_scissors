@@ -68,13 +68,13 @@ function playRound(humanChoice, computerChoice) {
     console.log(message);
 }
 
-console.log(computerChoice);
-console.log(humanChoice);
+// console.log(computerChoice);
+// console.log(humanChoice);
 
 const humanSelection = getHumanChoice().toLowerCase();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
 
-console.log(humanScore);
-console.log(computerScore);
+// console.log(humanScore);
+// console.log(computerScore);
