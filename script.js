@@ -31,8 +31,6 @@ function getHumanChoice() {
 // 3. Declare the players score variables
 // 1) Create two variables named humanScore and computerScore in the global scope
 // 2) Initialize those variables with the value of 0
-let humanScore = 0;
-let computerScore = 0;
 
 // 4. Write the logic to play a single round
 // 1) create a new function named playRound
@@ -40,41 +38,53 @@ let computerScore = 0;
 // 3) make the function's parameter humanChoice case-insensitive
 // 4) write the code for the playRound function
 // 5) increment both humanScore and computerScore every single game
-function playRound(humanChoice, computerChoice) {
-       
-    let message;
-    
-    if(humanChoice === "rock" && computerChoice === "paper") {
-        message = "You lose! Paper beats Rock";
-        computerScore += 1;
-    } else if(humanChoice === "rock" && computerChoice === "scissors") {
-        message = "You win! Rock beats Scissors";
-        humanScore += 1;
-    } else if(humanChoice === "paper" && computerChoice === "rock") {
-        message = "You win! Paper beats Rock";
-        humanScore += 1;
-    } else if(humanChoice === "paper" && computerChoice === "scissors") {
-        message = "You lose! Scissors beats Paper";
-        computerScore += 1;
-    } else if(humanChoice === "scissors" && computerChoice === "rock") {
-        message = "You lose! Rock beats Scissors";
-        computerScore += 1;
-    } else if(humanChoice === "scissors" && computerChoice === "paper") {
-        message = "You win! Scissors beats Paper";
-        humanScore += 1;
-    } else {
-        message = "It’s a tie";
+
+// 5. Write the logic to play the entire game
+// 1) create a new function named playGame
+// 2) Move the playRound function and score variables inside of the new playGame function
+
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice().toLowerCase();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
     }
-    console.log(message);
+
+    function playRound(humanChoice, computerChoice) {
+       
+        let message;
+        
+        if(humanChoice === "rock" && computerChoice === "paper") {
+            message = "You lose! Paper beats Rock";
+            computerScore += 1;
+        } else if(humanChoice === "rock" && computerChoice === "scissors") {
+            message = "You win! Rock beats Scissors";
+            humanScore += 1;
+        } else if(humanChoice === "paper" && computerChoice === "rock") {
+            message = "You win! Paper beats Rock";
+            humanScore += 1;
+        } else if(humanChoice === "paper" && computerChoice === "scissors") {
+            message = "You lose! Scissors beats Paper";
+            computerScore += 1;
+        } else if(humanChoice === "scissors" && computerChoice === "rock") {
+           message = "You lose! Rock beats Scissors";
+            computerScore += 1;
+        } else if(humanChoice === "scissors" && computerChoice === "paper") {
+            message = "You win! Scissors beats Paper";
+            humanScore += 1;
+        } else {
+            message = "It’s a tie";
+        }
+        console.log(message);  
+    }
+
+    console.log(`The human score is ${humanScore}`);
+    console.log(`The computer score is ${computerScore}`);
 }
 
-// console.log(computerChoice);
-// console.log(humanChoice);
+playGame();
 
-const humanSelection = getHumanChoice().toLowerCase();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
-
-// console.log(humanScore);
-// console.log(computerScore);
