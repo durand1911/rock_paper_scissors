@@ -81,8 +81,16 @@ function playGame() {
         console.log(message);  
     }
 
-    console.log(`The human score is ${humanScore}`);
-    console.log(`The computer score is ${computerScore}`);
+    console.log(`The human's score is ${humanScore}`);
+    console.log(`The computer's score is ${computerScore}`);
+
+    if(humanScore > computerScore) {
+        console.log("The winner is a human");
+    } else if(humanScore < computerScore) {
+        console.log("The winner is a computer");
+    } else {
+        console.log("No one is a winner");
+    }
 }
 
 playGame();
